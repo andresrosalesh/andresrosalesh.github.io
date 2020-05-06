@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block main %}
+    <!-- Import timer javascript program-->
+    <script src="/static/scripts/timer.js"></script>
+
+    <div class = "timer">
+        <p class = "title-page"> Track Your Time</p>
+
+        <!-- Timer user sees on screen-->
+        <div style="text-align:center;color:white;font-family:verdana;font-size:90px;" id = "timer">
+            00:00:00
+        </div>
+
+        <!--Start/stop and reset buttons-->
+        <div class = "button" style="position:relative; left:0px; top:-10px;">
+            <button style="font-family:verdana; background-color:#AEB6BF; border-color:#AEB6BF;" class="btn btn-primary" id = "start_stop" onclick="start()">Start</button>
+            <button style="font-family:verdana; background-color:#AEB6BF; border-color:#AEB6BF;" class="btn btn-primary" id = "reset" onclick="reset()">Reset</button>
+        </div>
+
+        <!--Task Description input-->
+        <div class="form-group">
+            <input style="width: 400px;" autocomplete="off" class="form-control" name="task" id = "task" placeholder="Task Description" type="text">
+        </div>
+
+        <!--Deep work boolean input-->
+        <div class="dwb">
+            <input  type="checkbox" name = 'dw' id="dw" class="weekday" />
+            <label for="dw">Deep</label>
+            <input type="checkbox" name = 'dw' id="sw" class="weekday" />
+            <label for="sw">Shallow</label>
+        </div>
+
+        <button style="position:relative; top:5px; font-family:verdana; background-color:#63C2F8; border-color:#63C2F8;" class="btn btn-primary" id='submit' type="submit">Submit</button>
+    </div>
+
+    <!--Shutdown complete button-->
+    <form action="/shutdown">
+        <div style = "position:relative; top:37.5px;color:white; font-family:verdana;" class = "button">
+            <button style="background-color:#F5B041; font-family:verdana; border-color:#AEB6BF; " class="btn btn-primary" onclick="window.location.href = 'complete.html';">Complete Shutdown</button>
+            <p>  </p> Inspired by the great book <a style="color:#63C2F8;" href="https://www.amazon.com/dp/B00X47ZVXM/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">Deep Work</a>.
+            </p>
+        </div>
+    </form>
+{% endblock %}

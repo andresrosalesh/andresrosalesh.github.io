@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+    <p class = 'title-page'> Register </p>
+
+    <p class = "body-text"> Sign up for Deep Worker and see your productivity transform. </p>
+    <form action="/register" class = 'form-profile' method="post">
+
+        <!--User information-->
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="fullname" placeholder="Full Name" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Password (again)" type="password">
+        </div>
+
+        <!--Hours per day information-->
+        <div style = "padding: 8px" class="hours-per-day">
+            <p class = "form-text"> Enter the number of hours you will work per day. </p>
+            <input style = "width: 90px;" autocomplete="off" class="form-control" name="hours" id = "hours" placeholder="Hours" type="number" min = '0' max = '24'>
+            <input style = "width: 100px;" autocomplete="off" class="form-control" name="minutes" id = "minutes" placeholder="Minutes" type="number" min = '0' max = '60'>
+            </select>
+        </div>
+
+        <!--Weekdays selector-->
+        <div style = "padding: 8px" class="weekDays-selector">
+          <p class = "form-text"> Enter the days of the week you will be working. </p>
+          <input type="checkbox" id="weekday-mon" name="mon" class="weekday" />
+          <label for="weekday-mon">M</label>
+          <input type="checkbox" id="weekday-tue" name="tue" class="weekday" />
+          <label for="weekday-tue">T</label>
+          <input type="checkbox" id="weekday-wed" name="wed" class="weekday" />
+          <label for="weekday-wed">W</label>
+          <input type="checkbox" id="weekday-thu" name="thu" class="weekday" />
+          <label for="weekday-thu">T</label>
+          <input type="checkbox" id="weekday-fri" name="fri" class="weekday" />
+          <label for="weekday-fri">F</label>
+          <input type="checkbox" id="weekday-sat" name="sat" class="weekday" />
+          <label for="weekday-sat">S</label>
+          <input type="checkbox" id="weekday-sun" name="sun" class="weekday" />
+          <label for="weekday-sun">S</label>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+{% endblock %}

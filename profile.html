@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+My Profile
+{% endblock %}
+
+{% block main %}
+
+<p class = 'title-page'> {{ name }}'s Deep Work Goals </p>
+<p class = "body-text" id = "commitment">
+</p>
+
+<script>
+
+// Format user's work commitments
+
+let days = {{ days|tojson }};
+let hours = {{ hours|tojson }};
+let minutes = {{ minutes|tojson }};
+
+if (days.length === 1) {
+    days_string = days[0] + "s";
+} else if (days.length === 2) {
+    days_string = days[0] + "s and " + days[1] + "s";
+} else {
+    days_string = ""
+    for (let i = 0; i < days.length; i++) {
+        days_string = days_string + " " + days[i] + "s,"
+        if (i === days.length - 1) {
+            days_string = days_string + " and " + days[i] + "s.";
+        }
+    }
+}
+
+document.getElementById('commitment').innerHTML = " You have commited to work for " + hours + " hours and " + minutes + " minutes on " + days_string;
+</script>
+
+<!--Update profile settings form-->
+<form action="/profile" class = 'form-profile' method="post">
+    <p class = 'title-page' style="padding: 20px;"> Update Your Profile </p>
+    <p class = "body-text"> To update your profile, please fill out the form below. </p>
+    <div style = "padding: 8px" class="hours-per-day">
+        <p class = "form-text"> Enter the number of hours you will work per day. </p>
+        <input style = "width: 90px;" autocomplete="off" class="form-control" name="hours" id = "hours" placeholder="Hours" type="number" min = '0' max = '24'>
+        <input style = "width: 100px;" autocomplete="off" class="form-control" name="minutes" id = "minutes" placeholder="Minutes" type="number" min = '0' max = '60'>
+    </div>
+
+    <div style = "padding: 8px" class="weekDays-selector">
+      <p class = "form-text"> Enter the days of the week you will be working. </p>
+          <input type="checkbox" id="weekday-mon" name="mon" class="weekday" />
+          <label for="weekday-mon">M</label>
+          <input type="checkbox" id="weekday-tue" name="tue" class="weekday" />
+          <label for="weekday-tue">T</label>
+          <input type="checkbox" id="weekday-wed" name="wed" class="weekday" />
+          <label for="weekday-wed">W</label>
+          <input type="checkbox" id="weekday-thu" name="thu" class="weekday" />
+          <label for="weekday-thu">T</label>
+          <input type="checkbox" id="weekday-fri" name="fri" class="weekday" />
+          <label for="weekday-fri">F</label>
+          <input type="checkbox" id="weekday-sat" name="sat" class="weekday" />
+          <label for="weekday-sat">S</label>
+          <input type="checkbox" id="weekday-sun" name="sun" class="weekday" />
+          <label for="weekday-sun">S</label>
+    </div>
+    <button class="btn btn-primary" type="submit">Update</button>
+</form>
+
+{% endblock %}

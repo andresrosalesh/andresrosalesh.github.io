@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Shutdown
+{% endblock %}
+
+{% block main %}
+
+<p class = 'title-page' style="padding: 20px;"> Complete Your Shutdown </p>
+<form action="/shutdown" class = 'form-profile' method="post">
+
+    <div style = "padding: 8px" class="hours-per-day">
+        <p class = "form-text"> 1. How much sleep did you get last night? </p>
+        <input style = "width: 90px;" autocomplete="off" class="form-control" name="sleeph" id = "hours" placeholder="Hours" type="number" min = '0' max = '24'>
+        <input style = "width: 100px;" autocomplete="off" class="form-control" name="sleepm" id = "minutes" placeholder="Minutes" type="number" min = '0' max = '60'>
+    </div>
+
+    <div style = "padding: 8px" class="hours-per-day">
+        <p class = "form-text"> 2. On a scale from 1 - 10, what was your quality of sleep last night? </p>
+        <input style = "width: 150px;" autocomplete="off" class="form-control" name="sleepq" id = "sleepq" placeholder="Sleep Quality" type="number" min = '1' max = '10'>
+    </div>
+
+    <div style = "padding: 8px" class="hours-per-day">
+        <p class = "form-text"> 3. Consider your mood. On a scale from 1 - 10, how well did you feel today? </p>
+        <input style = "width: 100px;" autocomplete="off" class="form-control" name="mood" id = "mood" placeholder="Mood" type="number" min = '1' max = '10'>
+    </div>
+
+    <div style = "padding: 8px" class="hours-per-day">
+        <p class = "form-text"> 4. On a scale from 1 - 10, how were your energy levels today? Consider qualities such as physical energy and mental sharpness. </p>
+        <input style = "width: 150px;" autocomplete="off" class="form-control" name="energy" id = "energy" placeholder="Energy Levels" type="number" min = '1' max = '10'>
+    </div>
+
+    <div style = "padding: 8px" class="dwb">
+        <p class = "form-text"> 5. Overall, were you happy with your productivity today? </p>
+        <input  type="checkbox" name = 'happy' id="happy" class="weekday" />
+        <label for="happy">Yes</label>
+        <input type="checkbox" name = 'nothappy' id="nothappy" class="weekday" />
+        <label for="nothappy">No</label>
+    </div>
+
+    <div style = "padding: 8px" class="hours-per-day">
+        <p class = "form-text"> 6. Take a moment to journal thoughts about your day. </p>
+        <input style = "width: 600px;"autocomplete="off" class="form-control" name="journal" placeholder="Journal" id = "journal" type="text">
+    </div>
+
+    <button style="position:relative; top:5px; font-family:verdana; background-color:#63C2F8; border-color:#63C2F8;" class="btn btn-primary" id='submit' type="submit">Submit</button>
+</form>
+
+
+{% endblock %}

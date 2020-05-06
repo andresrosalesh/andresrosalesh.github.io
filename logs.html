@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Logs
+{% endblock %}
+
+{% block main %}
+
+<script>let timings = {{ timings_list|tojson }}; let wbdata = {{ wbdata_list|tojson }}</script>
+
+
+<!-- Import logs javascript program-->
+<script src="/static/scripts/logs.js"></script>
+
+<p class = 'title-page'> Logs </p>
+
+<div class='body-text logs-text'>
+
+<div style="display: inline-block; float: left">
+<p style="text-align: left; font-size: 30px; font-weight: bold;"> Timings </p>
+<table id = "timings-table">
+  <tr>
+    <th>Date</th>
+    <th>Duration</th>
+    <th>Time Span</th>
+    <th>Deep Work</th>
+    <th>Task</th>
+  </tr>
+</table>
+</div>
+
+<div style="display: inline-block; padding: 20px;">
+<p style="text-align: left; font-size: 30px; font-weight: bold;"> Shutdowns </p>
+<table id = "shutdowns-table">
+  <tr>
+    <th>Date</th>
+    <th>Sleep Quality & Time</th>
+    <th>Mood</th>
+    <th>Energy</th>
+    <th>Feeling Productive</th>
+    <th>Journal</th>
+  </tr>
+</table>
+</div>
+
+</div>
+{% endblock %}
